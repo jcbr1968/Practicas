@@ -1,0 +1,64 @@
+El objetivo de esta práctica es aplicar los conceptos aprendidos de lenguaje C aplicándolos 
+a la solución de problemas simples de programación.
+
+Problemas:
+
+1. Escriba un programa que almacene en un archivo el contenido de otro archivo, en formato ASCII, 
+pero en dos representaciones diferentes. El programa se ejecuta así:
+
+$./programa archivo_entrada archivo_salida
+
+OJO: El programa no debe preguntar ni imprimir nada. DEBE obtener los nombres de los archivos 
+desde la línea de comandos.
+
+El formato de salida es:
+
+offset      ValorByteEnHexa               Caracter_Imprimible
+---------  ------------------------  -----------------------------
+- Cada línea debe mostrar 10 bytes del archivo. 
+- La columna offset indica la posición dentro del archivo del primer byte de la línea.
+- Utilice la función isprint para determinar si el carácter es imprimible. En caso de no ser imprimible 
+cambie el carácter por un punto (.).
+
+2. Escriba un programa que permita comprimir un archivo de entrada. El algoritmo de encontrar patrones de bytes
+sucesivos que se repiten y los debe reemplazar (en el archivo de salida) por un par de bytes. 
+EL primer byte indicará el número de veces que se repite el byte encontrado y el segundo byte será el byte como tal.
+Por ejemplo, suponga que el archivo contiene los siguientes bytes (para ver el contenido de un archivo en bytes
+ejecute en la consola: $hexdump -C archivo_entrada).
+
+FBFBFBFBFB909090567878787878FFFF0A
+
+El archivo de salida comprimido será:
+05FB03900156057802FF010A
+
+Tenga en cuenta que para visualizar el archivo de salida deberá utilizar:
+
+$hexdump -C archivo_salida
+
+Si usted abre el archivo de salida con un editor de texto "normal", no podrá apreciar el contenido.
+
+
+El programa se debe ejecutar así:
+
+$./programa archivo_entrada archivo_entrada.sip
+
+3. Implemente un programa que calcule el resultado de multiplicar dos matrices 
+A = (aij)mxn y B = (bij)nxp 
+
+(AB)ij = Sumatorio desde k=1 hasta k= n (aik*bkj)
+
+Considere:
+
+1. El programa se ejeucuta así: $./programa matriz1.txt matriz2.txt resultado.txt
+2. Las filas de las matrices se almacenan en los archivos por líneas. En cada línea los valores 
+están separados por espacios así: 
+ 
+a11 a12 a13 … a1n
+a21 a22 a23 … a2n 
+.
+.
+am1 am2 am3 … amn 
+
+3. El programa debe verificar si es posible realizar la operación.
+4. NOTE que el tamaña de las matrices es arbitrario.
+5. Tanto los archivos de entrada (las matrices) como el resultado, se deben poder leer con un editor de texto.
